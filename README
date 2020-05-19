@@ -1,0 +1,37 @@
+Nemulescu Roxana-Elena 312CA
+
+Photo editor
+	
+	Orice imagine este o structura bidimensionala de date.
+	Un element al imaginii se numeste pixel.
+	Photo editorul modifica pixelii de forma (R, G, B) in triplete (H, S, V).
+	La implementarea Photo editorului am folosit functiile
+	min2, max2, change, edit_photo si functia main.
+
+	Am folosit functia change, care a fost implementata cu scopul de a modifica
+	intervalul din [0, 255] in intervalul [0, 1]:
+	functia normeaza valoarea lui x, prin impartire la 255.
+
+	Functia edit_photo() schimba pixelii (R, G, B) in triplete (H, S, V) astfel:
+		1.Citeste latimea, inaltimea, litera prin care se face selectia
+		  operatiei aplicate si factorul de modificare a caracteristicii;
+		2.Intr-o instructiune repetitiva while, se citesc valorile R, G, B; 
+		3.Se normeaza valorile citite pentru R, G, B folosind functia change;
+		4.Se determina maximul si minimul dintre valorile obtinute in urma
+		  normarii, utilizand functiile max2, respectiv min2;
+		5.Se calculeaza valoarea lui delta, pe care il vom folosi in calcularea
+		  valorilor H si S;
+		6.Se calculeaza H, S, V, astfel incat, in urma modificarii, valorile sa
+		  apartina in continuare intervalului [0, 1]. In cazul lui H, daca
+		  valoarea sa nu apartine intervalului [0, 1], H este normat in
+		  functie de caz: pentru H < 0, se aduce valoarea lui H in intervalul
+		  [0, 360] adunand 360, dupa care se normeaza impartind la 360;
+		  pentru H > 0, se normeaza prin impartire la 360;
+		7.Se face selectia caracteristicii care urmeaza sa fie modificata
+		  folosind o instructiune switch, care stabileste valoarea care
+		  variabile din tripletul (H, S, V) se va modifica;
+		8.Se afiseaza tripletul (H, S, V) in urma modificarii;
+		9.While-ul se inchide in momentul in care au fost parcurse
+		  toate cele N * M linii;
+
+	In functia main() se apeleaza functia edit_photo().
